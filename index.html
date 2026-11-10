@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Для Даны ❤️</title>
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, serif;
+  background: linear-gradient(135deg,#ffe4e9,#fff4ef,#f8dce9);
+  color: #814b5c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.card {
+  width: 100%;
+  max-width: 440px;
+  padding: 35px 24px;
+  text-align: center;
+  background: rgba(255,255,255,.85);
+  border-radius: 25px;
+  box-shadow: 0 15px 50px #bd829155;
+  animation: appear 1.5s ease;
+}
+
+h1 { color:#bd6682; font-size:36px; font-weight:normal; }
+p { font-size:18px; line-height:1.7; }
+
+.heart {
+  font-size:42px;
+  color:#e78da5;
+  animation:pulse 1.5s infinite;
+}
+
+button {
+  border:0;
+  border-radius:30px;
+  padding:15px 25px;
+  margin-top:20px;
+  background:#d77f9b;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  box-shadow:0 5px 20px #d77f9b55;
+}
+
+.signature {
+  margin-top:25px;
+  color:#bd6682;
+  font-style:italic;
+}
+
+#sky {
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:5;
+  background:radial-gradient(ellipse at bottom,#17284d,#080d24 75%);
+  color:white;
+  text-align:center;
+  overflow:hidden;
+}
+
+#sky.show {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  animation: night 2s ease;
+}
+
+.stars {
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(2px 2px at 10% 20%,white 90%,transparent),
+    radial-gradient(2px 2px at 30% 70%,white 90%,transparent),
+    radial-gradient(2px 2px at 50% 30%,white 90%,transparent),
+    radial-gradient(2px 2px at 70% 15%,white 90%,transparent),
+    radial-gradient(2px 2px at 90% 60%,white 90%,transparent),
+    radial-gradient(1px 1px at 20% 45%,white 90%,transparent),
+    radial-gradient(1px 1px at 80% 80%,white 90%,transparent),
+    radial-gradient(2px 2px at 60% 85%,white 90%,transparent);
+  background-size:100% 100%;
+  animation:twinkle 3s infinite alternate;
+}
+
+.sky-title {
+  position:absolute;
+  top:15%;
+  font-size:18px;
+  letter-spacing:3px;
+  color:#c8d8ff;
+  opacity:0;
+  animation:fade 2s 1s forwards;
+}
+
+.shooting {
+  position:absolute;
+  top:25%;
+  left:-30%;
+  width:130px;
+  height:2px;
+  background:linear-gradient(90deg,transparent,#fff,#a9caff,transparent);
+  transform:rotate(-25deg);
+  animation:shoot 2s 2.5s ease-in forwards;
+}
+
+.message {
+  position:relative;
+  z-index:2;
+  width:min(90%,400px);
+  padding:20px;
+  opacity:0;
+  transform:translateY(15px);
+  animation:message 2s 5s forwards;
+}
+
+.message h2 {
+  color:#f5c5d5;
+  font-size:32px;
+  font-weight:normal;
+}
+
+.message p {
+  color:#fff;
+  font-size:19px;
+  line-height:1.8;
+}
+
+.message .last {
+  color:#f5c5d5;
+  margin-top:25px;
+  font-style:italic;
+}
+
+.close {
+  position:absolute;
+  bottom:25px;
+  z-index:3;
+  background:transparent;
+  border:1px solid #ffffff66;
+}
+
+@keyframes pulse { 50% {transform:scale(1.2)} }
+@keyframes appear {
+  from {opacity:0;transform:translateY(20px)}
+  to {opacity:1;transform:translateY(0)}
+}
+@keyframes night { from {opacity:0} to {opacity:1} }
+@keyframes twinkle { from {opacity:.45} to {opacity:1} }
+@keyframes shoot {
+  0% {left:-30%;top:25%;opacity:0}
+  15% {opacity:1}
+  100% {left:120%;top:65%;opacity:0}
+}
+@keyframes fade { to {opacity:1} }
+@keyframes message {
+  to {opacity:1;transform:translateY(0)}
+}
+</style>
+</head>
+<body>
+
+<div class="card" id="card">
+  <div style="letter-spacing:4px;color:#bd8291">
+    МАЛЕНЬКИЙ СЮРПРИЗ
+  </div>
+
+  <h1>Для моей Даны</h1>
+  <div class="heart">♡</div>
+
+  <p>
+    Знаешь, иногда жизнь неожиданно
+    дарит нам приятные встречи.
+    И я очень рад, что мы снова стали ближе.
+  </p>
+
+  <p>
+    Мне нравится узнавать тебя,
+    улыбаться твоим сообщениям
+    и ждать новых разговоров с тобой.
+  </p>
+
+  <p>
+    Ты стала для меня особенным человеком.
+  </p>
+
+  <div class="signature">С теплом и нежностью ❤️</div>
+
+  <button onclick="showSky()">
+    ✨ Посмотри на небо
+  </button>
+</div>
+
+<div id="sky">
+  <div class="stars"></div>
+  <div class="sky-title">ОДНО ЖЕЛАНИЕ ДЛЯ ТЕБЯ</div>
+  <div class="shooting"></div>
+
+  <div class="message">
+    <h2>Дана ❤️</h2>
+    <p>
+      Среди миллиардов звёзд мне особенно
+      повезло встретить тебя.
+      Не знаю, что приготовило нам будущее,
+      но я очень рад, что ты появилась
+      в моей жизни.
+    </p>
+
+    <p class="last">
+      Если бы я мог загадать одно желание,
+      я бы загадал ещё больше счастливых
+      моментов с тобой. ❤️
+    </p>
+  </div>
+
+  <button class="close" onclick="closeSky()">
+    Вернуться к открытке
+  </button>
+</div>
+
+<script>
+function showSky() {
+  document.getElementById("sky").classList.add("show");
+}
+
+function closeSky() {
+  document.getElementById("sky").classList.remove("show");
+}
+</script>
+
+</body>
+</html>
